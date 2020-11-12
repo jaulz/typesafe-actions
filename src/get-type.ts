@@ -13,8 +13,8 @@ import {
 /**
  * @description get the "type literal" of a given action-creator
  */
-export function getType<TType extends TypeConstant>(
-  actionCreator: ActionCreator<TType> & ActionCreatorTypeMetadata<TType>
+export function getType<TType extends TypeConstant, TActionCreator extends ActionCreator<TType> & ActionCreatorTypeMetadata<TType>>(
+  actionCreator: TActionCreator
 ): TType {
   if (checkIsEmpty(actionCreator)) {
     throwIsEmpty(1);
